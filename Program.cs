@@ -128,9 +128,9 @@ app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServicesProvider;
+    var services = scope.ServiceProvider;
     var context = services.GetRequiredService<BankContext>();
-    context.Database.Migration();
+    context.Database.Migrate();
 
 }
 
