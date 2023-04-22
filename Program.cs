@@ -126,4 +126,12 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServicesProvider;
+    var context = services.GetRequiredService<BankContext>();
+    context.Database.Migration();
+
+}
+
 app.Run();
