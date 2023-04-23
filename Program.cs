@@ -15,7 +15,17 @@ using Newtonsoft.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("TroopersConnection");
+//DataBase - Production String
+var mySqlUrl = Environment.GetEnvironmentVariable("MYSQL_URL");
+var mySqlDatabase = Environment.GetEnvironmentVariable("MYSQLDATABASE");
+var mySqlHost = Environment.GetEnvironmentVariable("MYSQLHOST");
+var mySqlPassword = Environment.GetEnvironmentVariable("MYSQLPASSWORD");
+var mySqlPort = Environment.GetEnvironmentVariable("MYSQLPORT");
+var mySqlUser = Environment.GetEnvironmentVariable("MYSQLUSER");
+
+// Construir a string de conexão
+var connectionString = $"Server={mySqlHost};Port={mySqlPort};Database={mySqlDatabase};User Id={mySqlUser};Password={mySqlPassword};";
+
 
 builder.Services.AddDbContext<BankContext>(options =>
 options
