@@ -26,7 +26,6 @@ var mySqlUser = Environment.GetEnvironmentVariable("MYSQLUSER");
 // Construir a string de conexão
 var connectionString = $"Server={mySqlHost};Port={mySqlPort};Database={mySqlDatabase};User Id={mySqlUser};Password={mySqlPassword};";
 
-
 builder.Services.AddDbContext<BankContext>(options =>
 options
 .UseLazyLoadingProxies()
