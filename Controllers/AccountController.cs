@@ -23,7 +23,7 @@ public class AccountController : ControllerBase
     [HttpGet]
     public IActionResult GetAllAccounts()
     {
-        var accounts= _accountRepository.GetAllAccounts();
+        var accounts = _accountRepository.GetAllAccounts();
         return Ok(accounts);
     }
 
@@ -31,11 +31,11 @@ public class AccountController : ControllerBase
     [Route("transfer")]
     public IActionResult Transfer([FromBody] TransactionDto transactionDto)
     {
-        int senderAccNumber = transactionDto.SenderAccNumber;
+        int senderID = transactionDto.SenderID;
         int receiverAccNumber = transactionDto.ReceiverAccNumber;
 
         Account receiver = _accountRepository.GetByAccountNumber(receiverAccNumber);
-        Account sender = _accountRepository.GetByAccountNumber(senderAccNumber);
+        Account sender = _accountRepository.GetByAccountNumber(senderID);
 
         _accountRepository.Transfer(transactionDto.Amount, receiver, sender);
 

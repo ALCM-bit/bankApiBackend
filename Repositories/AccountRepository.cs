@@ -22,9 +22,15 @@ public class AccountRepository : IAccountRepository
 
     }
 
-    public Account GetByAccountNumber(int accountNumber) 
+    public Account GetByAccountNumber(int accountNumber)
     {
-      return GetAllAccounts().Find(account => account.AccountNumber == accountNumber);
+        return GetAllAccounts().Find(account => account.AccountNumber == accountNumber);
+    }
+
+    public Account GetAccountById(int id)
+    {
+        return GetAllAccounts().Find(acc => acc.Id == id);
+
     }
 
     public bool CheckIfAccountExists(List<Account> accounts, int accountNumber)
@@ -36,7 +42,7 @@ public class AccountRepository : IAccountRepository
     {
 
         receiver.Balance += amount;
-        sender.Balance -=amount;
+        sender.Balance -= amount;
         _bank.SaveChanges();
 
     }
