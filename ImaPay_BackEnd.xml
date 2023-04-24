@@ -4,6 +4,29 @@
         <name>ImaPay_BackEnd</name>
     </assembly>
     <members>
+        <member name="T:ImaPay_BackEnd.Controllers.SignupController">
+            <summary>
+            Controlador para o formulário de cadastro.
+            </summary>
+        </member>
+        <member name="M:ImaPay_BackEnd.Controllers.SignupController.CreateAccount(ImaPay_BackEnd.Domain.Dtos.SignupDto)">
+            <summary>
+            Cria uma nova conta para o usuário.
+            </summary>
+            <remarks>
+            Aqui você pode fornecer detalhes adicionais sobre a ação.
+            </remarks>
+            <param name="bodyData">Dados do formulário de cadastro.</param>
+            <returns>Um objeto com a mensagem "successful" e o momento da criação.</returns>
+            <response code="201">Retorna a resposta com sucesso.</response>
+            <response code="400">Retorna a resposta com erro.</response>
+        </member>
+        <member name="M:ImaPay_BackEnd.Controllers.SignupController.GenerateRandomAccountNumber">
+            <summary>
+            Gera um número de conta aleatório e verifica se já existe na base de dados.
+            </summary>
+            <returns>O número da conta gerada.</returns>
+        </member>
         <member name="M:ImaPay_BackEnd.Controllers.UserController.GetAll">
             <summary>
             Pega todos Usuários
@@ -22,17 +45,17 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:ImaPay_BackEnd.Migrations.NewMigration">
-            <inheritdoc />
+        <member name="M:ImaPay_BackEnd.Controllers.UserController.Login(ImaPay_BackEnd.Domain.Dtos.LoginDto)">
+            <summary>
+            Faz o login do usuario
+            </summary>
+            <returns></returns>
         </member>
-        <member name="M:ImaPay_BackEnd.Migrations.NewMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:ImaPay_BackEnd.Migrations.NewMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:ImaPay_BackEnd.Migrations.NewMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
+        <member name="M:ImaPay_BackEnd.Controllers.UserController.GetAccountData(System.Int32)">
+            <summary>
+            Pega as informações do usuario baseado em seu id
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>
