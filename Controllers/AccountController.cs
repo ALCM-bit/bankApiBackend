@@ -35,7 +35,7 @@ public class AccountController : ControllerBase
         int receiverAccNumber = transactionDto.ReceiverAccNumber;
 
         Account receiver = _accountRepository.GetByAccountNumber(receiverAccNumber);
-        Account sender = _accountRepository.GetByAccountNumber(senderID);
+        Account sender = _accountRepository.GetAccountById(senderID);
 
         _accountRepository.Transfer(transactionDto.Amount, receiver, sender);
 
@@ -46,6 +46,25 @@ public class AccountController : ControllerBase
 
     }
 
+    [HttpPost]
+    [Route("deposit")]
+
+    public IActionResult Deposit([FromBody] DepositDto depositDto)
+    {
+        int accountId = depositDto.AccountId;
+
+
+        Account account = _accountRepository.GetAccountById(accountId);
+
+        _accountRepository.Deposit(depositDto.Amount, account);
+
+        return Ok("Success");
+
+
+
+    }
+
+
+
 
 }
-
