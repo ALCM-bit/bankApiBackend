@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using ImaPay_BackEnd.Domain.Dtos;
 using ImaPay_BackEnd.Domain.Model;
-using ImaPay_BackEnd.Repositories;
 using ImaPay_BackEnd.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -42,7 +41,7 @@ public class AccountController : ControllerBase
 
         Account sender = await _accountRepository.GetById(senderID);
 
-        //test
+
         bool isBalanceEnough = sender.Balance >= transactionDto.Amount;
 
         if (!isBalanceEnough)
