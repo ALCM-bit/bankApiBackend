@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImaPay_BackEnd.Migrations
 {
     [DbContext(typeof(BankContext))]
-    [Migration("20230424212152_New")]
-    partial class New
+    [Migration("20230427200438_NewMigration")]
+    partial class NewMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

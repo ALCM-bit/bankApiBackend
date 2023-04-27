@@ -5,12 +5,11 @@ namespace ImaPay_BackEnd.Domain.Model;
 
 public class Account : Entity
 {
-
     public long AccountNumber { get; set; }
 
     public string Agency { get; set; }
 
-    public double Balance { get; set; } = 0;
+    public double Balance { get; set; } = 2500;
 
     public bool isBlocked { get; set; }
 
@@ -21,4 +20,3 @@ public class Account : Entity
     public int UserId { get; set; }
     public virtual User User { get; set; }
 }
-

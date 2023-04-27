@@ -10,7 +10,7 @@ using System.Reflection;
 using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-
+using ImaPay_BackEnd.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +40,7 @@ options
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
@@ -141,11 +142,12 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<BankContext>();
-    context.Database.Migrate();
-}
+// using (var scope = app.Services.CreateScope())
+// {
+//     var services = scope.ServiceProvider;
+//     var context = services.GetRequiredService<BankContext>();
+//     context.Database.Migrate();
+
+// }
 
 app.Run();
